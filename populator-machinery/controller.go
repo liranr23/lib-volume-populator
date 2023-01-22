@@ -718,6 +718,7 @@ func (c *controller) syncPvc(ctx context.Context, key, pvcNamespace, pvcName str
 
 func makePopulatePodSpec(pvcPrimeName string) corev1.PodSpec {
 	return corev1.PodSpec{
+		ServiceAccountName: "forklift-controller",
 		Containers: []corev1.Container{
 			{
 				Name:            populatorContainerName,
